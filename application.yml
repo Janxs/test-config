@@ -80,12 +80,6 @@ hystrix:
         errorThresholdPercentage: 50%  #出错百分比阈值，当达到此阈值后，开始短路。默认50%
 
 
-mybatis:
-    mapper-locations: classpath:mapping/*.xml
-    type-aliases-package: com.b2b.module.commodity.model
-    configuration:
-#         控制台输出mybatis的sql
-          log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 pagehelper:
     helperDialect: mysql
@@ -93,23 +87,6 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
 
-
-
-payNotifyUrl: http://192.168.60.207:8082/purchaser/pay/hypay_callback
-
-refundNotifyUrl: http://192.168.60.207:8082/purchaser/pay/hypay_refund_callback
-
-payUrl: http://hjy.77lemon.top/pay-api/scanPaymentQRCode
-
-checkPayUrl: http://hjy.77lemon.top/pay-api/queryOrderState
-
-refundUrl: http://hjy.77lemon.top/pay-api/refund
-
-settlementUrl: http://hjy.77lemon.top/pay-api/sendSettlement
-
-storeId: 3243
-
-importMerchantSupplierId: 137955089913565184
 
 tx-lcn:
   client:
