@@ -1,0 +1,121 @@
+spring:
+  application:
+    name: b2b-order
+
+  datasource:
+      url: jdbc:mysql://139.159.154.136:3306/b2b_order?useUnicode=true&amp;characterEncoding=utf8
+      username: root
+      password: ningpai520
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.jdbc.Driver
+      maxActive: 100
+      testOnBorrow: true
+      validationQuery: SELECT 1
+
+  jackson:
+    dateFormat: yyyy-MM-dd'T'hh:mm:ss
+
+  redis:
+    host: 139.159.147.239
+    port: 6379
+
+
+
+  rabbitmq:
+      host: 139.159.147.239
+      port: 5672
+      username: b2b
+      password: kzj365
+      publisher-confirms: true
+      publisher-returns: true
+      listener:
+        direct:
+          acknowledge-mode: manual
+        simple:
+          acknowledge-mode: manual
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+      enabled: true
+
+
+ribbon:
+  ReadTimeout: 4000
+  ConnectTimeout: 4000
+
+server:
+  port: 8082
+  tomcat:
+    basedir: .
+
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ip-address}
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 9
+  client:
+    serviceUrl:
+      defaultZone: http://139.159.147.239:8085/eureka/
+
+# 配置hystrix
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 101  #线程池核心线程数
+  command:
+    #IService#hello(): 设置某一个接口 default: 设置全部接口
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000 #超时时间
+      circuitBreaker:
+        requestVolumeThreshold: 100  #当在配置时间窗口内达到此数量后，进行短路。默认20个
+        sleepWindowInMilliseconds: 5000  #短路多久以后开始尝试是否恢复，默认5s/单位毫秒
+        errorThresholdPercentage: 50%  #出错百分比阈值，当达到此阈值后，开始短路。默认50%
+
+
+mybatis:
+    mapper-locations: classpath:mapping/*.xml
+    type-aliases-package: com.b2b.module.commodity.model
+    configuration:
+#         控制台输出mybatis的sql
+          log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: false
+    supportMethodsArguments: true
+    params: count=countSql
+
+
+
+payNotifyUrl: http://192.168.60.207:8082/purchaser/pay/hypay_callback
+
+refundNotifyUrl: http://192.168.60.207:8082/purchaser/pay/hypay_refund_callback
+
+payUrl: http://hjy.77lemon.top/pay-api/scanPaymentQRCode
+
+checkPayUrl: http://hjy.77lemon.top/pay-api/queryOrderState
+
+refundUrl: http://hjy.77lemon.top/pay-api/refund
+
+settlementUrl: http://hjy.77lemon.top/pay-api/sendSettlement
+
+storeId: 3243
+
+importMerchantSupplierId: 137955089913565184
+
+tx-lcn:
+  client:
+    manager-address: 139.159.147.239:8070 #可填写多个负载
+
+appContext:
+  swagger:
+    host:
+
