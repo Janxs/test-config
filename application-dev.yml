@@ -47,7 +47,7 @@ feign:
 hystrix:
   threadpool:
     default:
-      coreSize: 101  #线程池核心线程数
+      coreSize: 100  #线程池核心线程数
   command:
     #IService#hello(): 设置某一个接口 default: 设置全部接口
     default:
