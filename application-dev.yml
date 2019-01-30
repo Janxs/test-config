@@ -4,7 +4,7 @@ spring:
     dateFormat: yyyy-MM-dd'T'hh:mm:ss
 
   redis:
-    host: 139.159.147.2391
+    host: 139.159.147.239
     port: 6379
 
   rabbitmq:
