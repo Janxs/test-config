@@ -82,4 +82,9 @@ tx-lcn:
 appContext:
   swagger:
     host:
-
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
