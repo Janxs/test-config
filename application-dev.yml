@@ -21,7 +21,7 @@ spring:
           acknowledge-mode: manual
   servlet:
     multipart:
-      max-file-size: 20MB
+      max-file-size: 21MB
       max-request-size: 20MB
       enabled: true
 
