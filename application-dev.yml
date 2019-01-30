@@ -95,5 +95,3 @@ management:
     web:
       exposure:
         include: refresh
-logging:
-  level: info
