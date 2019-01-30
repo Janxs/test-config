@@ -1,5 +1,12 @@
 spring:
-
+  datasource:
+    username: root
+    password: ningpai520
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    maxActive: 100
+    testOnBorrow: true
+    validationQuery: SELECT 1
   jackson:
     dateFormat: yyyy-MM-dd'T'hh:mm:ss
 
