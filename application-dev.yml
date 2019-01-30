@@ -8,7 +8,7 @@ spring:
     port: 6379
 
   rabbitmq:
-      host: 139.159.147.2391
+      host: 139.159.147.239
       port: 5672
       username: b2b
       password: kzj365
