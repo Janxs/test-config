@@ -71,9 +71,9 @@ hystrix:
 mybatis:
     mapper-locations: classpath:mapping/*.xml
     type-aliases-package: com.b2b.module.commodity.model
-#    configuration:
+    configuration:
 #         控制台输出mybatis的sql
-    #      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 pagehelper:
     helperDialect: mysql
